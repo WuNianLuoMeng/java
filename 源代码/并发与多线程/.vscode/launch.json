@@ -1,0 +1,32 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - _Test",
+            "request": "launch",
+            "mainClass": "_Test",
+            "console": "externalTerminal"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - _interrupt1",
+            "request": "launch",
+            "mainClass": "_interrupt1",
+            "console": "externalTerminal"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - _interrupt2",
+            "request": "launch",
+            "mainClass": "_interrupt2",
+            "console": "externalTerminal"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - _Thread",
+            "request": "launch",
+            "mainClass": "_Thread",
+            "console": "externalTerminal"
+        }
+    ]
+}
