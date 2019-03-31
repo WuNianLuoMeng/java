@@ -1,0 +1,18 @@
+{
+    "configurations": [        
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - T1",
+            "request": "launch",
+            "mainClass": "T1",
+            "console": "externalTerminal"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - T2",
+            "request": "launch",
+            "mainClass": "T2",
+            "console": "externalTerminal"
+        }
+    ]
+}
