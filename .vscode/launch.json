@@ -1,17 +1,17 @@
 {
-    "configurations": [        
+    "configurations": [
         {
             "type": "java",
-            "name": "CodeLens (Launch) - T1",
+            "name": "CodeLens (Launch) - _T3",
             "request": "launch",
-            "mainClass": "T1",
+            "mainClass": "_T3",
             "console": "externalTerminal"
         },
         {
             "type": "java",
-            "name": "CodeLens (Launch) - T2",
+            "name": "CodeLens (Launch) - _T2",
             "request": "launch",
-            "mainClass": "T2",
+            "mainClass": "_T2",
             "console": "externalTerminal"
         }
     ]

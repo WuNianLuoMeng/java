@@ -1,8 +1,8 @@
 import java.util.concurrent.ExecutionException;
 
-public class T1 {
+public class _T1 {
     public static void main(String[] args) {
-        Test x = new Test();
+        Test1 x = new Test();
         new Thread("Thread1") {
             @Override
             public void run() {
@@ -19,11 +19,11 @@ public class T1 {
 
 }
 
-class Test {
+class Test1 {
     public synchronized void T() {
         for (int i = 1; i <= 5; i++)
         {
-            System.out.println(Thread.currentThread().getName() + "µ÷ÓÃT·½·¨" + i + "´Î");
+            System.out.println(Thread.currentThread().getName() + "ï¿½ï¿½Tï¿½ï¿½ï¿½ï¿½" + i + "ï¿½ï¿½");
         }
     }
 }

@@ -1,8 +1,8 @@
 import java.util.concurrent.ExecutionException;
 
-public class T2 {
+public class _T2 {
     public static void main(String[] args) {
-        Test x = new Test();
+        Test2 x = new Test2();
         new Thread("Thread1") {
             @Override
             public void run() {
@@ -19,14 +19,14 @@ public class T2 {
 
 }
 
-class Test {
+class Test2 {
     final Object obj = new Object();
     public void T() {
+        System.out.println(Thread.currentThread().getName()+"使用");
         synchronized (this) {
             for (int i = 1; i <= 5; i++) {
                 System.out.println(Thread.currentThread().getName() + "调用了T方法" + i + "次");
-            }            
+            }
         }
-        System.out.println(Thread.currentThread().getName()+"使用！！！");
     }
 }
