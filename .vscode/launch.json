@@ -2,6 +2,12 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - MyThreadPool",
+            "request": "launch",
+            "mainClass": "MyThreadPool"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - Test_singleclass",
             "request": "launch",
             "mainClass": "Test_singleclass"
