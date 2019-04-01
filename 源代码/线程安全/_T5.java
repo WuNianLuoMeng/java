@@ -22,7 +22,7 @@ public class _T5{
     public void T1(){
         if(lock.tryLock()){
             try{
-                System.out.println(Thread.currentThread().getName()+"µ÷ÓÃT1·½·¨");
+                System.out.println(Thread.currentThread().getName()+"è°ƒç”¨T1æ–¹æ³•");
                 try{
                     Thread.currentThread().sleep(1000);
                 } catch (Exception e){
@@ -32,10 +32,10 @@ public class _T5{
 
             } finally{
                 lock.unlock();
-                System.out.println(Thread.currentThread().getName()+"ÊÍ·ÅËø×ÊÔ´");
+                System.out.println(Thread.currentThread().getName()+"é‡Šæ”¾é”èµ„æº");
             }
         } else{
-            System.out.println(Thread.currentThread().getName()+"»ñÈ¡ËøÊ§°Ü"); 
+            System.out.println(Thread.currentThread().getName()+"è·å–é”å¤±è´¥"); 
         }
     }
 }

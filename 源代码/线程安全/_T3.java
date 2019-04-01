@@ -27,17 +27,17 @@ public class _T3{
 class Test3{    
     public synchronized static void T1(){
         for(int i=1;i<=100;i++){
-            System.out.println(Thread.currentThread().getName()+"µ÷ÓÃÁËT1·½·¨"+i+"´Î");
+            System.out.println(Thread.currentThread().getName()+"è°ƒç”¨T1å‡½æ•°"+i+"æ¬¡");
         }       
     }
     public synchronized static void T2(){
         for(int i=1;i<=2;i++){
-            System.out.println(Thread.currentThread().getName()+"µ÷ÓÃÁËT2·½·¨"+i+"´Î");
+            System.out.println(Thread.currentThread().getName()+"è°ƒç”¨T2å‡½æ•°"+i+"æ¬¡");
         }
     }
     public void t(){
         for(int i=1;i<=100;i++){
-            System.out.println(Thread.currentThread().getName()+"µ÷ÓÃÁËt·½·¨"+i+"´Î");
+            System.out.println(Thread.currentThread().getName()+"è°ƒç”¨tå‡½æ•°"+i+"æ¬¡");
         }
     }
 }

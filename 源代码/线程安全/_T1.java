@@ -23,7 +23,7 @@ class Test1 {
     public synchronized void T() {
         for (int i = 1; i <= 5; i++)
         {
-            System.out.println(Thread.currentThread().getName() + "µ÷ÓÃTº¯Êý" + i + "´Î");
+            System.out.println(Thread.currentThread().getName() + "è°ƒç”¨Tå‡½æ•°" + i + "æ¬¡");
         }
     }
 }

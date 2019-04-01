@@ -20,7 +20,7 @@ public class _T4 {
     private void T1() {                
         lock.lock();
         try {
-            System.out.println(Thread.currentThread().getName() + "µ÷ÓÃT1·½·¨");
+            System.out.println(Thread.currentThread().getName() + "è°ƒç”¨T1å‡½æ•°");
             try {
                 Thread.currentThread().sleep(1000);
             } catch (Exception e) {
@@ -30,7 +30,7 @@ public class _T4 {
 
         } finally {
             lock.unlock();
-            System.out.println(Thread.currentThread().getName() + "ÊÍ·ÅËø×ÊÔ´");
+            System.out.println(Thread.currentThread().getName() + "é‡Šæ”¾é”");
         }
     }
 }

@@ -22,10 +22,10 @@ public class _T2 {
 class Test2 {
     final Object obj = new Object();
     public void T() {
-        System.out.println(Thread.currentThread().getName()+"µ÷ÓÃ");
+        System.out.println(Thread.currentThread().getName()+"è°ƒç”¨");
         synchronized (this) {
             for (int i = 1; i <= 5; i++) {
-                System.out.println(Thread.currentThread().getName() + "µ÷ÓÃT·½·¨" + i + "´Î");
+                System.out.println(Thread.currentThread().getName() + "è°ƒç”¨Tæ–¹æ³•" + i + "æ¬¡");
             }
         }
     }
