@@ -20,7 +20,7 @@ public class _T4 {
     private void T1() {                
         lock.lock();
         try {
-            System.out.println(Thread.currentThread().getName() + "执行了T1方法");
+            System.out.println(Thread.currentThread().getName() + "调用T1方法");
             try {
                 Thread.currentThread().sleep(1000);
             } catch (Exception e) {
@@ -30,7 +30,7 @@ public class _T4 {
 
         } finally {
             lock.unlock();
-            System.out.println(Thread.currentThread().getName() + "释放了对象锁");
+            System.out.println(Thread.currentThread().getName() + "释放锁资源");
         }
     }
 }

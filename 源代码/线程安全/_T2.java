@@ -22,10 +22,10 @@ public class _T2 {
 class Test2 {
     final Object obj = new Object();
     public void T() {
-        System.out.println(Thread.currentThread().getName()+"使用");
+        System.out.println(Thread.currentThread().getName()+"调用");
         synchronized (this) {
             for (int i = 1; i <= 5; i++) {
-                System.out.println(Thread.currentThread().getName() + "调用了T方法" + i + "次");
+                System.out.println(Thread.currentThread().getName() + "调用T方法" + i + "次");
             }
         }
     }
