@@ -1,0 +1,31 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - AtomicIntegerFieldUpdaterTest",
+            "request": "launch",
+            "mainClass": "AtomicIntegerFieldUpdaterTest",
+            "console": "externalTerminal"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - AtomicReferenceTest",
+            "request": "launch",
+            "mainClass": "AtomicReferenceTest"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - AtomicIntegetArrayTest",
+            "request": "launch",
+            "mainClass": "AtomicIntegetArrayTest",
+            "console": "externalTerminal"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - AtomicIntegerTest",
+            "request": "launch",
+            "mainClass": "AtomicIntegerTest",
+            "console": "externalTerminal"
+        }
+    ]
+}
