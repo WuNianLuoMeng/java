@@ -1,0 +1,11 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - ThreadLocalTest",
+            "request": "launch",
+            "mainClass": "ThreadLocalTest",
+            "console": "externalTerminal"
+        }
+    ]
+}
