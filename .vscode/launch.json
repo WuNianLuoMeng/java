@@ -2,6 +2,12 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - _Thread",
+            "request": "launch",
+            "mainClass": "_Thread"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - DoubleCheckThreadsafe",
             "request": "launch",
             "mainClass": "DoubleCheckThreadsafe",
@@ -12,7 +18,7 @@
             "name": "CodeLens (Launch) - ThreadLocalTest",
             "request": "launch",
             "mainClass": "ThreadLocalTest",
-            "console": "externalTerminal",            
+            "console": "externalTerminal"
         }
     ]
 }
