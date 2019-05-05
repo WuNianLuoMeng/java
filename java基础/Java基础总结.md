@@ -52,20 +52,38 @@ default：同一包中的类可以访问，声明时没有加修饰符，认为�
 
 ### *Java中的集合
 
++ Vector和ArrayList
+
+  vector是线程安全的，ArrayList是线程不安全的。
+
++ ArratList与LinkedList的区别
+
+  底层实现:ArrayList是数组实现，LInkedList是双向链表。
+
 + HashMap，HashTable的区别
   + 就线程安全而言，HashMap不是线程安全的，HashTable是线程安全的。
   + HashMap可以把null当作key或者value，但是HashTable是不行的。
   + 初始容量大小：HashMap初始值为16，每次扩容都是原来的2倍，HsahTable初始值是11，每次扩容都是原来的2*n+1.
   + 底层结构：HashMap是散列表+链表+红黑树，HashTable是散列表+链表。
   + 解决冲突的方法：拉链法。
+
 + HashMap
   + 初始容量为16，以后每次扩容都是原来容量的2倍，只是因为当key的hashcode的值大于数组的长度的时候，需要对hashcode操作进行取余操作，即hashcode()%len，但是该操作可以使用位运算来实现即hashcode()&(len-1)，但是如果采用该运算式的话，必须保证len是2的次幂。
   + 当链表的长度大于8的时候，会转换成红黑树，进而提高数据的查找速度。
   + 在并发的情况下，HashMap可能会发生死循环问题，原因就是在对HashMap进行扩容的时候，链表中节点的顺序会发生变化。即原来的顺序被另一个线程a颠倒了，而被挂起的线程b唤醒之后拿着扩容前的节点和顺序继续完成第一次循环后，有遵循了a线程修改之后的i按发表结点的顺序，最终形成了环。
   + 如何让HashMap同步： Map xMap=Collections.synchronizedMap(m)//m是HashMap对象实例。
+
 + CurrentHashMap
-  + 采用分段的思想，加锁的范围并不是整个table数组整体，而是指对其中某一段进行加锁，那么在某段加锁的时候，其他线程可以访问没有加锁的段数据，
-+ 线程安全的集合：Vector,HashTable,CurrentHashMap,
+
+  + 采用分段的思想，加锁的范围并不是整个table数组整体，而是指对其中某一段进行加锁，那么在某段加锁的时候，其他线程可以访问没有加锁的段数据。
+
++ 线程安全的集合：Vector, HashTable , CurrentHashMap。
+
++ List，Set是继承了Collection接口的，Map是没有继承Collection接口。
+
+  + 三者存取元素时各有什么特点？
+
+    List和Set具有相似性，他们都是单列元素的集合。Set中不允许有重复的元素，List有先后顺序，主要是List是由链表构成，Map时双列的集合，key-value形式，key值唯一，但是可以由多个key值对应一个value值。
 
 ### *拷贝文件的工具类使用字节流还是字符流：字节流
 
@@ -150,9 +168,49 @@ default：同一包中的类可以访问，声明时没有加修饰符，认为�
 + 一个类继承抽象类，如果没有实现抽象类中的抽象方法，必须用abstruct修饰，也就是说抽象类，一个类继承接口的时候，必须重写接口中的方法。
 + 一个类可以实现多个接口，但只能继承一个抽象类
 
-### *List，Set，Map是否继承自Collection接口
+### *内部类的好处
 
-+ List，Set是继承了Collection接口的，Map是没有继承Collection接口。
+~~~ java
+/*
+1，可以实现对类的隐藏*/
+//只能通过Test实例对象来调用GetClass方法来去实例化一个内部类，但是客户端是无法看到内部是如何让进行实例化的，相当于对内部类的一种保护。
+public class Test {
+	private class test{
+		
+	}
+	public test GetClass() {
+		return new test();
+	}	
+}
 
-+ 三者存取元素时各有什么特点？
-  + List和Set具有相似性，他们都是单列元素的集合。Set中不允许有重复的元素，List有先后顺序，主要是List是由链表构成，Map时双列的集合，key-value形式，key值唯一，但是可以由多个key值对应一个value值。
+/*
+2，可以访问外部类中的成员变量*/
+
+public class Test {
+	private String name="hello";
+	class test{
+		public void Print() {
+			System.out.println(name);
+		}				
+	}
+	public test GetClass() {
+		return new test();
+	}	
+}
+
+/*3，可以实现一个类继承多个类*/
+/*4，可以避免一个父类中的方法和继承接口中的方法名重复的问题*/
+public class test extends test1 implements test2{
+    
+}
+//假如说test1中和test2中含有相同的函数名的话，那么test重写最终要覆盖谁的方法，为了解决这个问题，可以使用内部类来实现
+public class test extends test1{
+	class test1_imple implements test2{
+
+	}
+}
+
+~~~
+
+
+
