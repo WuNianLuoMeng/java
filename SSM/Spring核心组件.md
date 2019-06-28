@@ -1,0 +1,20 @@
+# 总结
+
+## Spring-Bean组件
+
+​	该组件在Spring的org.springframework.beans包下，这个包下的所有类主要解决bean的定义，bean的创建以及bean的解析。对Spring的使用者来说唯一关心就是Bean的创建，其他两个有Spring在内部就已经完成了。
+
+​	Spring-bean创建是典型的工厂模式，顶级接口是BeanFactory。BeanFactory有三个子类：ListableBeanFactory，HierarchcialBeanFactory和AutowireCapableBeanFactory。但是默认实现的是DefaultListtableBeanFactory，它实现了所有的接口。定义这么多接口的意义是为了区分Soring内部在操作过程中对象的传递和转化的过程中，对对象的数据访问所做出的限制，比如说AutowireCapableBeanFactory就是说明Bean的自动装配原则，HierarchcialBeanFactory就是说明Bean是有继承关系的，也就是每个Bean有可能有父Bean。
+
+## Spring-Context组件
+
+​	Context组件在Spring的org.springframework.context包下，它实际是给Spring提供了一个运行环境用以保证各个对象的状态。
+
+​	ApplicationContext是context的顶级父类，并且他还继承了五个接口，其中继承了BeanFactory这个接口，还集成了ResourceLoader，使得ApplicationContext可以访问到任何外部的资源。
+
+## Spring-core组件
+
+​	core组件包含了很多的类，其中包含了一个类就是定义了资源的访问方式，Resource接口继承了InputStreamSource接口，这个接口中有getInputStream方法，返回的是InputStream类。这样所有资源都可以通过InputStream这个类来获取。还有个问题就是资源加载问题，这个问题由ResourceLoader接口完成，默认实现为DefaultResourceLoader。
+
+
+

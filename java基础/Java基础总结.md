@@ -73,9 +73,10 @@ default：同一包中的类可以访问，声明时没有加修饰符，认为�
   + 在并发的情况下，HashMap可能会发生死循环问题，原因就是在对HashMap进行扩容的时候，链表中节点的顺序会发生变化。即原来的顺序被另一个线程a颠倒了，而被挂起的线程b唤醒之后拿着扩容前的节点和顺序继续完成第一次循环后，有遵循了a线程修改之后的i按发表结点的顺序，最终形成了环。
   + 如何让HashMap同步： Map xMap=Collections.synchronizedMap(m)//m是HashMap对象实例。
 
-+ CurrentHashMap
++ ConCurrentHashMap
 
   + 采用分段的思想，加锁的范围并不是整个table数组整体，而是指对其中某一段进行加锁，那么在某段加锁的时候，其他线程可以访问没有加锁的段数据。
+  + 适用于读多写少的操作，原因如下：get过程是不需要锁的，除非读到的值为空的时候才会加锁重读。
 
 + 线程安全的集合：Vector, HashTable , CurrentHashMap。
 
@@ -84,6 +85,34 @@ default：同一包中的类可以访问，声明时没有加修饰符，认为�
   + 三者存取元素时各有什么特点？
 
     List和Set具有相似性，他们都是单列元素的集合。Set中不允许有重复的元素，List有先后顺序，主要是List是由链表构成，Map时双列的集合，key-value形式，key值唯一，但是可以由多个key值对应一个value值。
+
+### *java反射
+
++ 获取字节码文件的三种方法
+
+  ~~~java
+  /*第一种*/
+  Class<?> class1 = Object1.getClass();
+  /*第二种*/
+  Class<?> class2 = Object2.class;
+  /*第三种*/
+  Class<?> class3 = Class.forName("类的权限定名");
+  ~~~
+
++ 反射类的简单使用
+
+  ~~~ java
+  //获取实例对象
+  Test x = class.newInstance()
+  //获取构造方法
+  class.getConstructor([String.class]);
+  //获取属性
+  Field c=class.getFields()：获得某个类的所有的公共（public）的字段，包括父类中的字段。 
+  Field c=class.getDeclaredFields()：获得某个类的所有声明的字段，即包括public、private和proteced，但是不包括父类的申明字段.
+  //获取方法
+  class.getMethod("方法名",class…..parameaType);（只能获取公共的） 
+  ~~~
+
 
 ### *拷贝文件的工具类使用字节流还是字符流：字节流
 
@@ -162,11 +191,19 @@ default：同一包中的类可以访问，声明时没有加修饰符，认为�
 
 ### *抽象类和接口的区别
 
-+ 抽象类中可以含有普通成员变量，接口不行
 + 抽象类可以含有构造方法，接口不行
-+ 抽象类可以包含静态方法，但是接口不行
+
 + 一个类继承抽象类，如果没有实现抽象类中的抽象方法，必须用abstruct修饰，也就是说抽象类，一个类继承接口的时候，必须重写接口中的方法。
+
 + 一个类可以实现多个接口，但只能继承一个抽象类
+
++ 两者的使用
+
+  is-a has-a
+
+  is-a( 是 "a"  小明是人类)表示的是属于的关系。比如兔子属于一种动物（继承关系）。
+
+  has-a( 有 "a"  汽车有轮胎) 表示组合，包含关系。比如兔子包含有腿，头等组件；就不能说兔子腿是属于一种兔子（不能说是继承关系）
 
 ### *内部类的好处
 
@@ -213,4 +250,30 @@ public class test extends test1{
 ~~~
 
 
+
+### *Java中的面向字节和面向字符的区别
+
+Java的IO操作中有面向字节(Byte)和面向字符(Character)两种方式
+
+ 解析：Java的IO操作中有面向字节(Byte)和面向字符(Character)两种方式。
+面向字节的操作为以8位为单位对二进制的数据进行操作，对数据不进行转换，这些类都是InputStream和OutputStream的子类。
+面向字符的操作为以字符为单位对数据进行操作，在读的时候将二进制数据转为字符，在写的时候将字符转为二进制数据，这些类都是Reader和Writer的子类。
+
+总结：以InputStream（输入）/OutputStream（输出）为后缀的是字节流；
+
+​          以Reader（输入）/Writer（输出）为后缀的是字符流。
+
+### * Java IO与NIO
+
+### IO
+
++ 面向字节流：只能读取当前的数据。如果需要获取某个数据的前一项或者后一项那就必须自己缓存数据。
++ 阻塞：获取不到数据就会一直处于阻塞状态。
+
+### NIO
+
++ 面向缓冲区：读取时可以将整块数据读取到缓冲区中，在写入的时候可以将整个缓冲区中的数据一起写入。
++ 基于Selector的非阻塞：实现单个线程管理多个通道。
+
+### NIO框架：Netty，Mina ，xSocket，Grizzly
 
